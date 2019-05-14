@@ -1,3 +1,26 @@
+package main
+
+import "fmt"
+
+func main() {
+	//nums := []int{1, 1, 2}
+	nums := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	fmt.Println(nums[0:removeDuplicates(nums)])
+}
+
+func removeDuplicates(nums []int) int {
+	j := 0
+	nLen := len(nums)
+	for i := 0; i < nLen; i++ {
+		if nums[j] != nums[i] {
+			j++
+			nums[j] = nums[i]
+		}
+	}
+
+	return j + 1
+}
+
 /**!
 
 从排序数组中删除重复项
@@ -38,17 +61,3 @@ for (int i = 0; i < len; i++) {
 }
 
 **/
-package main
-
-func removeDuplicates(nums []int) int {
-	j := 0
-	nLen := len(nums)
-	for i := 0; i < nLen; i++ {
-		if nums[j] != nums[i] {
-			j++
-			nums[j] = nums[i]
-		}
-	}
-
-	return j + 1
-}
